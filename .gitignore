@@ -2,3 +2,5 @@ venv
 media/
 __pycache__
 db.json
+db.sqlite
+.DS_Store
