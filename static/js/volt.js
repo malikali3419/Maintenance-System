@@ -17,7 +17,7 @@
 
 "use strict";
 const d = document;
-d.addEventListener("DOMContentLoaded", function (event) {
+d.addEventListener("DOMContentLoaded", function(event) {
 
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
@@ -37,10 +37,10 @@ d.addEventListener("DOMContentLoaded", function (event) {
 
     var preloader = d.querySelector('.preloader');
     if (preloader) {
-        setTimeout(function () {
+        setTimeout(function() {
             preloader.classList.add('show');
 
-            setTimeout(function () {
+            setTimeout(function() {
                 d.querySelector('.loader-element').classList.add('hide');
             }, 200);
         }, 1000);
@@ -49,10 +49,10 @@ d.addEventListener("DOMContentLoaded", function (event) {
     var sidebar = document.getElementById('sidebarMenu');
     var content = document.getElementsByClassName('content')[0];
     if (sidebar && d.body.clientWidth < breakpoints.lg) {
-        sidebar.addEventListener('shown.bs.collapse', function () {
+        sidebar.addEventListener('shown.bs.collapse', function() {
             document.querySelector('body').style.position = 'fixed';
         });
-        sidebar.addEventListener('hidden.bs.collapse', function () {
+        sidebar.addEventListener('hidden.bs.collapse', function() {
             document.querySelector('body').style.position = 'relative';
         });
     }
@@ -69,7 +69,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
         }
 
         // bell shake
-        var shakingInterval = setInterval(function () {
+        var shakingInterval = setInterval(function() {
             if (iconNotifications.getAttribute('data-unread-notifications') === 'true') {
                 if (bellShake.classList.contains('shaking')) {
                     bellShake.classList.remove('shaking');
@@ -79,7 +79,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
             }
         }, 5000);
 
-        iconNotifications.addEventListener('show.bs.dropdown', function () {
+        iconNotifications.addEventListener('show.bs.dropdown', function() {
             bellShake.setAttribute('data-unread-notifications', false);
             clearInterval(shakingInterval);
             bellShake.classList.remove('shaking');
@@ -87,40 +87,40 @@ d.addEventListener("DOMContentLoaded", function (event) {
         });
     }
 
-    [].slice.call(d.querySelectorAll('[data-background]')).map(function (el) {
+    [].slice.call(d.querySelectorAll('[data-background]')).map(function(el) {
         el.style.background = 'url(' + el.getAttribute('data-background') + ')';
     });
 
-    [].slice.call(d.querySelectorAll('[data-background-lg]')).map(function (el) {
+    [].slice.call(d.querySelectorAll('[data-background-lg]')).map(function(el) {
         if (document.body.clientWidth > breakpoints.lg) {
             el.style.background = 'url(' + el.getAttribute('data-background-lg') + ')';
         }
     });
 
-    [].slice.call(d.querySelectorAll('[data-background-color]')).map(function (el) {
+    [].slice.call(d.querySelectorAll('[data-background-color]')).map(function(el) {
         el.style.background = 'url(' + el.getAttribute('data-background-color') + ')';
     });
 
-    [].slice.call(d.querySelectorAll('[data-color]')).map(function (el) {
+    [].slice.call(d.querySelectorAll('[data-color]')).map(function(el) {
         el.style.color = 'url(' + el.getAttribute('data-color') + ')';
     });
 
     //Tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
 
     // Popovers
     var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
         return new bootstrap.Popover(popoverTriggerEl)
     })
 
 
     // Datepicker
     var datepickers = [].slice.call(d.querySelectorAll('[data-datepicker]'))
-    var datepickersList = datepickers.map(function (el) {
+    var datepickersList = datepickers.map(function(el) {
         return new Datepicker(el, {
             buttonClass: 'btn'
         });
@@ -147,7 +147,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
     }
 
     if (d.querySelector('.input-slider-container')) {
-        [].slice.call(d.querySelectorAll('.input-slider-container')).map(function (el) {
+        [].slice.call(d.querySelectorAll('.input-slider-container')).map(function(el) {
             var slider = el.querySelector(':scope .input-slider');
             var sliderId = slider.getAttribute('id');
             var minValue = slider.getAttribute('data-range-value-min');
@@ -186,7 +186,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
                 min: parseInt(c.getAttribute('data-range-value-min')),
                 max: parseInt(c.getAttribute('data-range-value-max'))
             }
-        }), c.noUiSlider.on("update", function (a, b) {
+        }), c.noUiSlider.on("update", function(a, b) {
             f[b].textContent = a[b]
         });
     }
@@ -220,7 +220,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
                 // On the y-axis start means left and end means right
                 showGrid: true,
                 showLabel: true,
-                labelInterpolationFnc: function (value) {
+                labelInterpolationFnc: function(value) {
                     return (value / 1) + 'M';
                 }
             }
@@ -250,7 +250,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
                 // On the y-axis start means left and end means right
                 showGrid: false,
                 showLabel: false,
-                labelInterpolationFnc: function (value) {
+                labelInterpolationFnc: function(value) {
                     return '$' + (value / 1) + 'k';
                 }
             }
@@ -282,7 +282,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
             }
         });
 
-        chart.on('draw', function (data) {
+        chart.on('draw', function(data) {
             if (data.type === 'line' || data.type === 'area') {
                 data.element.animate({
                     d: {
@@ -323,7 +323,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
             }
         });
 
-        chart.on('draw', function (data) {
+        chart.on('draw', function(data) {
             if (data.type === 'line' || data.type === 'area') {
                 data.element.animate({
                     d: {
@@ -343,12 +343,12 @@ d.addEventListener("DOMContentLoaded", function (event) {
             series: [70, 20, 10]
         };
 
-        var sum = function (a, b) {
+        var sum = function(a, b) {
             return a + b
         };
 
         new Chartist.Pie('.ct-chart-traffic-source', data, {
-            labelInterpolationFnc: function (value) {
+            labelInterpolationFnc: function(value) {
                 return Math.round(value / data.series.reduce(sum) * 100) + '%';
             },
             low: 0,
@@ -367,12 +367,12 @@ d.addEventListener("DOMContentLoaded", function (event) {
             series: [30, 50, 20]
         };
 
-        var sum = function (a, b) {
+        var sum = function(a, b) {
             return a + b
         };
 
         new Chartist.Pie('.ct-chart-distribution', data, {
-            labelInterpolationFnc: function (value) {
+            labelInterpolationFnc: function(value) {
                 return Math.round(value / data.series.reduce(sum) * 100) + '%';
             },
             low: 0,
@@ -394,12 +394,12 @@ d.addEventListener("DOMContentLoaded", function (event) {
             series: [30, 20, 20, 10, 10]
         };
 
-        var sum = function (a, b) {
+        var sum = function(a, b) {
             return a + b
         };
 
         new Chartist.Pie('.ct-chart-traffic-share-2', data, {
-            labelInterpolationFnc: function (value) {
+            labelInterpolationFnc: function(value) {
                 return Math.round(value / data.series.reduce(sum) * 100) + '%';
             },
             low: 0,
@@ -420,12 +420,12 @@ d.addEventListener("DOMContentLoaded", function (event) {
             series: [70, 20, 10]
         };
 
-        var sum = function (a, b) {
+        var sum = function(a, b) {
             return a + b
         };
 
         new Chartist.Pie('.ct-chart-traffic-share', data, {
-            labelInterpolationFnc: function (value) {
+            labelInterpolationFnc: function(value) {
                 return Math.round(value / data.series.reduce(sum) * 100) + '%';
             },
             low: 0,
@@ -455,14 +455,14 @@ d.addEventListener("DOMContentLoaded", function (event) {
                 Chartist.plugins.tooltip()
             ],
             axisX: {
-                labelInterpolationFnc: function (value, index) {
+                labelInterpolationFnc: function(value, index) {
                     return index % 2 === 0 ? value : null;
                 }
             }
         });
 
         // Listen for draw events on the bar chart
-        chart.on('draw', function (data) {
+        chart.on('draw', function(data) {
             // If this draw event is of type bar we can use the data to create additional content
             if (data.type === 'bar') {
                 // We use the group element of the current series to append a simple circle with the bar peek coordinates and a circle radius that is depending on the value
@@ -476,7 +476,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
     }
 
     if (d.getElementById('loadOnClick')) {
-        d.getElementById('loadOnClick').addEventListener('click', function () {
+        d.getElementById('loadOnClick').addEventListener('click', function() {
             var button = this;
             var loadContent = d.getElementById('extraContent');
             var allLoaded = d.getElementById('allLoadedText');
@@ -484,7 +484,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
             button.classList.add('btn-loading');
             button.setAttribute('disabled', 'true');
 
-            setTimeout(function () {
+            setTimeout(function() {
                 loadContent.style.display = 'block';
                 button.style.display = 'none';
                 allLoaded.style.display = 'block';
@@ -591,84 +591,84 @@ d.addEventListener("DOMContentLoaded", function (event) {
     if (calendarEl) {
 
         var events = [{
-            id: 1,
-            title: 'Call with Jane',
-            start: '2020-11-18',
-            end: '2020-11-19',
-            className: 'bg-red'
-        },
+                id: 1,
+                title: 'Call with Jane',
+                start: '2020-11-18',
+                end: '2020-11-19',
+                className: 'bg-red'
+            },
 
-        {
-            id: 2,
-            title: 'Dinner meeting',
-            start: '2020-11-21',
-            end: '2020-11-22',
-            className: 'bg-orange'
-        },
+            {
+                id: 2,
+                title: 'Dinner meeting',
+                start: '2020-11-21',
+                end: '2020-11-22',
+                className: 'bg-orange'
+            },
 
-        {
-            id: 3,
-            title: 'HackTM conference',
-            start: '2020-11-29',
-            end: '2020-11-30',
-            className: 'bg-green'
-        },
+            {
+                id: 3,
+                title: 'HackTM conference',
+                start: '2020-11-29',
+                end: '2020-11-30',
+                className: 'bg-green'
+            },
 
-        {
-            id: 4,
-            title: 'Meeting with John',
-            start: '2020-12-01',
-            end: '2020-12-02',
-            className: 'bg-blue'
-        },
+            {
+                id: 4,
+                title: 'Meeting with John',
+                start: '2020-12-01',
+                end: '2020-12-02',
+                className: 'bg-blue'
+            },
 
-        {
-            id: 5,
-            title: 'Summer Hackaton',
-            start: '2020-12-03',
-            end: '2020-12-04',
-            className: 'bg-purple'
-        },
+            {
+                id: 5,
+                title: 'Summer Hackaton',
+                start: '2020-12-03',
+                end: '2020-12-04',
+                className: 'bg-purple'
+            },
 
-        {
-            id: 6,
-            title: 'Digital event',
-            start: '2020-12-07',
-            end: '2020-12-09',
-            className: 'bg-info'
-        },
+            {
+                id: 6,
+                title: 'Digital event',
+                start: '2020-12-07',
+                end: '2020-12-09',
+                className: 'bg-info'
+            },
 
-        {
-            id: 7,
-            title: 'Marketing event',
-            start: '2020-12-10',
-            end: '2020-12-11',
-            className: 'bg-blue'
-        },
+            {
+                id: 7,
+                title: 'Marketing event',
+                start: '2020-12-10',
+                end: '2020-12-11',
+                className: 'bg-blue'
+            },
 
-        {
-            id: 8,
-            title: 'Dinner with Parents',
-            start: '2020-12-19',
-            end: '2020-12-20',
-            className: 'bg-red'
-        },
+            {
+                id: 8,
+                title: 'Dinner with Parents',
+                start: '2020-12-19',
+                end: '2020-12-20',
+                className: 'bg-red'
+            },
 
-        {
-            id: 9,
-            title: 'Black Friday',
-            start: '2020-12-23',
-            end: '2020-12-24',
-            className: 'bg-yellow'
-        },
+            {
+                id: 9,
+                title: 'Black Friday',
+                start: '2020-12-23',
+                end: '2020-12-24',
+                className: 'bg-yellow'
+            },
 
-        {
-            id: 10,
-            title: 'Cyber Week',
-            start: '2020-12-02',
-            end: '2020-12-03',
-            className: 'bg-red'
-        }
+            {
+                id: 10,
+                title: 'Cyber Week',
+                start: '2020-12-02',
+                end: '2020-12-03',
+                className: 'bg-red'
+            }
         ];
 
         var addNewEventModalEl = d.getElementById('modal-new-event');
@@ -701,17 +701,17 @@ d.addEventListener("DOMContentLoaded", function (event) {
             initialDate: '2020-12-01',
             editable: true,
             events: events,
-            dateClick: function (d) {
+            dateClick: function(d) {
                 addNewEventModal.show();
                 newEventTitleInput.value = '';
                 newEventStartDatepicker.setDate(d.date);
                 newEventEndDatepicker.setDate(d.date.setDate(d.date.getDate() + 1));
 
-                addNewEventModalEl.addEventListener('shown.bs.modal', function () {
+                addNewEventModalEl.addEventListener('shown.bs.modal', function() {
                     newEventTitleInput.focus();
                 });
             },
-            eventClick: function (info, element) {
+            eventClick: function(info, element) {
                 // set current id
                 currentId = info.event.id;
                 editEventTitleInput.value = info.event.title;
@@ -719,14 +719,14 @@ d.addEventListener("DOMContentLoaded", function (event) {
                 editEventEndDatepicker.setDate(info.event.end ? info.event.end : info.event.start);
 
                 editEventModal.show();
-                editEventModalEl.addEventListener('shown.bs.modal', function () {
+                editEventModalEl.addEventListener('shown.bs.modal', function() {
                     editEventTitleInput.focus();
                 });
             }
         });
         calendar.render();
 
-        d.getElementById('addNewEventForm').addEventListener('submit', function (event) {
+        d.getElementById('addNewEventForm').addEventListener('submit', function(event) {
             event.preventDefault();
             calendar.addEvent({
                 id: Math.random() * 10000, // this should be a unique id from your back-end or API
@@ -739,7 +739,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
             addNewEventModal.hide();
         });
 
-        d.getElementById('editEventForm').addEventListener('submit', function (event) {
+        d.getElementById('editEventForm').addEventListener('submit', function(event) {
             event.preventDefault();
             var editEvent = calendar.getEventById(currentId);
             var startDate = moment(editEventStartDatepicker.getDate()).format('YYYY-MM-DD');
@@ -751,7 +751,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
             editEventModal.hide();
         });
 
-        d.getElementById('deleteEvent').addEventListener('click', function () {
+        d.getElementById('deleteEvent').addEventListener('click', function() {
             swalWithBootstrapButtons.fire({
                 icon: 'error',
                 title: 'Confirm deletion',
@@ -759,7 +759,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
                 showCancelButton: true,
                 confirmButtonText: "Yes, delete it!",
                 cancelButtonText: 'No, cancel!',
-            }).then(function (result) {
+            }).then(function(result) {
                 if (result.value) {
                     swalWithBootstrapButtons.fire(
                         'Deleted!',
@@ -845,35 +845,35 @@ d.addEventListener("DOMContentLoaded", function (event) {
     var baseLatLng = [37.57, -122.26];
     var zoom = 10;
     var listings = [{
-        url: '#',
-        latLng: [37.70, -122.41],
-        name: 'Call with Jane',
-        date: 'Tomorrow at 12:30 PM'
-    },
-    {
-        url: '#',
-        latLng: [37.59, -122.39],
-        name: 'HackTM conference',
-        date: 'In about 5 minutes'
-    },
-    {
-        url: '#',
-        latLng: [37.52, -122.29],
-        name: 'Marketing event',
-        date: 'Today at 1:00 PM'
-    },
-    {
-        url: '#',
-        latLng: [37.37, -122.12],
-        name: 'Dinner with partners',
-        date: 'In 2 hours'
-    },
-    {
-        url: '#',
-        latLng: [37.36, -121.94],
-        name: 'Interview with Google',
-        date: 'In two days at 15:00 PM'
-    }
+            url: '#',
+            latLng: [37.70, -122.41],
+            name: 'Call with Jane',
+            date: 'Tomorrow at 12:30 PM'
+        },
+        {
+            url: '#',
+            latLng: [37.59, -122.39],
+            name: 'HackTM conference',
+            date: 'In about 5 minutes'
+        },
+        {
+            url: '#',
+            latLng: [37.52, -122.29],
+            name: 'Marketing event',
+            date: 'Today at 1:00 PM'
+        },
+        {
+            url: '#',
+            latLng: [37.37, -122.12],
+            name: 'Dinner with partners',
+            date: 'In 2 hours'
+        },
+        {
+            url: '#',
+            latLng: [37.36, -121.94],
+            name: 'Interview with Google',
+            date: 'In two days at 15:00 PM'
+        }
     ];
 
     if (d.querySelector('#mapbox')) {
@@ -896,7 +896,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
             accessToken: config.mapboxToken
         }).addTo(mapListings);
 
-        listings.map(function (listing, index) {
+        listings.map(function(listing, index) {
             var popupHtml = `
                 <a href="${listing.url}" class="card card-article-wide border-0 flex-column no-gutters no-hover">
                     <div class="card-body py-0 d-flex flex-column justify-content-between col-12">
@@ -966,7 +966,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
             startVal: 299
         });
 
-        billingSwitchEl.addEventListener('change', function () {
+        billingSwitchEl.addEventListener('change', function() {
             if (billingSwitch.checked) {
                 countUpStandard.start();
                 countUpPremium.start();
@@ -984,7 +984,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
 
             sidebar.classList.add('contracted');
 
-            setTimeout(function () {
+            setTimeout(function() {
                 sidebar.classList.remove('notransition');
                 content.classList.remove('notransition');
             }, 500);
@@ -995,14 +995,14 @@ d.addEventListener("DOMContentLoaded", function (event) {
 
             sidebar.classList.remove('contracted');
 
-            setTimeout(function () {
+            setTimeout(function() {
                 sidebar.classList.remove('notransition');
                 content.classList.remove('notransition');
             }, 500);
         }
 
         var sidebarToggle = d.getElementById('sidebar-toggle');
-        sidebarToggle.addEventListener('click', function () {
+        sidebarToggle.addEventListener('click', function() {
             if (sidebar.classList.contains('contracted')) {
                 sidebar.classList.remove('contracted');
                 localStorage.removeItem('sidebar', 'contracted');
@@ -1012,7 +1012,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
             }
         });
 
-        sidebar.addEventListener('mouseenter', function () {
+        sidebar.addEventListener('mouseenter', function() {
             if (localStorage.getItem('sidebar') === 'contracted') {
                 if (sidebar.classList.contains('contracted')) {
                     sidebar.classList.remove('contracted');
@@ -1022,7 +1022,7 @@ d.addEventListener("DOMContentLoaded", function (event) {
             }
         });
 
-        sidebar.addEventListener('mouseleave', function () {
+        sidebar.addEventListener('mouseleave', function() {
             if (localStorage.getItem('sidebar') === 'contracted') {
                 if (sidebar.classList.contains('contracted')) {
                     sidebar.classList.remove('contracted');
