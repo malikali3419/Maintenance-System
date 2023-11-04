@@ -23,7 +23,6 @@ class CustomUserManager(BaseUserManager):
 
         return self.create_user(email, password, **extra_fields)
 
-
 class User(AbstractUser, PermissionsMixin):
     USER_ROLES = (
         ('admin', 'Admin'),
@@ -36,6 +35,8 @@ class User(AbstractUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     bio = models.TextField(blank=True)
     phone = models.CharField(max_length=20, blank=True)
+    profile_image = models.ImageField( upload_to="images",  blank=True, null=True)
+
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

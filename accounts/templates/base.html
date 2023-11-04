@@ -40,23 +40,52 @@
 <!-- COLOR SKIN CSS -->
 <link id="theme" rel="stylesheet" type="text/css" media="all" href="{% static "colors/color1.css" %}" />
 
-<link rel="apple-touch-icon" sizes="120x120" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/img/favicon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/img/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/img/favicon/favicon-16x16.png">
-<link rel="manifest" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/img/favicon/site.webmanifest">
-<link rel="mask-icon" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/img/favicon/safari-pinned-tab.svg" color="#ffffff">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="theme-color" content="#ffffff">
 
-<link type="text/css" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-<link type="text/css" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
-<link type="text/css" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/notyf/notyf.min.css" rel="stylesheet">
-<link type="text/css" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/fullcalendar/main.min.css" rel="stylesheet">
-<link type="text/css" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
-<link type="text/css" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/choices.js/public/assets/styles/choices.min.css" rel="stylesheet">
-<link type="text/css" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/leaflet/dist/leaflet.css" rel="stylesheet">
-<link type="text/css" href="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/css/volt.css" rel="stylesheet">
+<style>
+    .slider {
+  background-color: #ffffff2b;
+  border-radius: 100px;
+  padding: 1px;
+  margin: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  align-items: center;
+  position: relative;
+  display: block;
+  width: 51px;
+  height: 29px;
+  box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, rgba(0, 0, 0, 0.21) 0px 0px 0px 24px inset,
+        #22cc3f 0px 0px 0px 0px inset, rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
+}
 
+.slider::after {
+  content: "";
+  display: flex;
+  top: 2.3px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: #e3e3e3;
+  border-radius: 200px;
+  position: absolute;
+  box-shadow: transparent 0px 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 6px 6px;
+  transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s, background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  will-change: left, background-color;
+}
+
+.switch input[type="checkbox"]:checked + .slider {
+  box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, #22cc3f 0px 0px 0px 2px inset, #22cc3f 0px 0px 0px 24px inset,
+        rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
+}
+
+.switch input[type="checkbox"]:checked + .slider::after {
+  left: 24px;
+}
+
+.switch input[type="checkbox"] {
+  display: none;
+}
+</style>
 </head>
 <body>
 <body class="app sidebar-mini ltr light-mode">
@@ -182,34 +211,7 @@
             });
         });
     </script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/@popperjs/core/dist/umd/popper.min.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-    
-    <!-- Plugins -->
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/onscreen/dist/on-screen.umd.min.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/nouislider/distribute/nouislider.min.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/countup.js/dist/countUp.umd.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/chartist/dist/chartist.min.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/simple-datatables/dist/umd/simple-datatables.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/fullcalendar/main.min.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/dropzone/dist/min/dropzone.min.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/choices.js/public/assets/scripts/choices.min.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/notyf/notyf.min.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/leaflet/dist/leaflet.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/svgmap/dist/svgMap.min.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/simplebar/dist/simplebar.min.js"></script>
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/vendor/sortablejs/Sortable.min.js"></script>
-    
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    
-    <!-- Volt PRO -->
-    <script src="https://appsrv1-147a1.kxcdn.com/volt-dashboard-pro-v131/js/volt.js"></script>
+
 </body>
 
 </html>
